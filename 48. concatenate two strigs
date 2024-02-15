@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Concatenator {
+private:
+    string str;
+public:
+    Concatenator() {}
+
+    Concatenator(string s) : str(s) {}
+
+    Concatenator operator+() {
+        return *this;
+    }
+
+    Concatenator operator+(const Concatenator& other) {
+        Concatenator result;
+        result.str = str + other.str;
+        return result;
+    }
+
+    void display() {
+        cout << "Concatenated String: " << str << endl;
+    }
+};
+
+int main() {
+    string s1, s2;
+    cout << "Enter first string: ";
+    cin >> s1;
+    cout << "Enter second string: ";
+    cin >> s2;
+
+    Concatenator obj1(s1), obj2(s2);
+    Concatenator result = +obj1 + obj2;
+    result.display();
+
+    return 0;
+}
