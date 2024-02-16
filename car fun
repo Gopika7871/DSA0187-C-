@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    string model;
+    int year;
+public:
+    Car(string b, string m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+        cout << "A " << year << " " << brand << " " << model << " car is created." << endl;
+    }
+    ~Car() {
+        cout << "The " << year << " " << brand << " " << model << " car is destroyed." << endl;
+    }
+    void display() {
+        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+int main() {
+    Car car1("Toyota", "Camry", 2020);
+    Car car2("Honda", "Civic", 2019);
+    cout << "Car 1 details:" << endl;
+    car1.display();
+    cout << "\nCar 2 details:" << endl;
+    car2.display();
+
+    return 0;
+}
